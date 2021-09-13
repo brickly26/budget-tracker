@@ -12,8 +12,7 @@ In this assignment assignment I created a web app that allows a user to tracker 
 
 ## Video
 
-This video shows the a user updating their previous workout, and also creating a completly new workout with its own exercises. It also shows the dashboard with a visual representation fo the data.
-
+This video shows the a the cached files and data. It shows the apps ability to run even when the user has no internet connection. It also shows the data being stored in IndexedDB when the user is offline, and shows that data being removed when the user comes back online.
 ![Video showing functionality](./video/mock.gif)
 
 
