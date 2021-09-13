@@ -1,6 +1,6 @@
 let db;
 
-const request = window.indexedDB.open("BudgetStore", 1);
+const request = window.indexedDB.open("BudgetDB", 1);
 
 request.onupgradeneeded = function (event) {
   db = event.target.result;
@@ -8,6 +8,8 @@ request.onupgradeneeded = function (event) {
   const BudgetStore = db.createObjectStore("BudgetStore", {
     autoIncrement: true
   });
+
+  BudgetStore.createIndex("budgets", "transactions");
 };
 
 request.onsuccess = function (event) {
@@ -23,7 +25,7 @@ request.onerror = function (event) {
 };
 
 function saveRecord(record) {
-  db = request. result;
+
   const transaction = db.transaction(["BudgetStore"], "readwrite");
   const budgetStore = transaction.objectStore("BudgetStore");
 
@@ -31,7 +33,6 @@ function saveRecord(record) {
 }
 
 function checkDatabase() {
-  db = request.result;
 
   const transaction = db.transaction(['BudgetStore'], "readwrite");
   const budgetStore = transaction.objectStore("BudgetStore");
